@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Heart ❤️</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Nunito', sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: white;
+}
+
+/* Title */
+.main-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  color: #ffe6ea;
+  text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
+}
+
+.subnote {
+  margin-bottom: 40px;
+  color: #f8d7da;
+}
+
+/* Gallery Layout */
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.thumb-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.thumb {
+  width: 85px;
+  height: 85px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid white;
+  transition: 0.3s;
+}
+
+.thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.7);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Image */
+.frame-wrapper {
+  background: rgba(255,255,255,0.9);
+  padding: 12px;
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+#mainImage {
+  max-height: 75vh;
+  max-width: 400px;
+  border-radius: 20px;
+  transition: opacity 0.4s ease;
+}
+
+/* Typewriter Note */
+.image-note {
+  margin-top: 30px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  color: #ffe6ea;
+  text-align: center;
+  min-height: 50px;
+  text-shadow: 0 0 10px rgba(255, 77, 109, 0.7);
+}
+
+/* Love Letter */
+.love-letter {
+  max-width: 750px;
+  padding: 40px;
+  border-radius: 25px;
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url("images/82071.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  line-height: 1.9;
+  margin: 80px auto 0 auto;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.love-letter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+}
+
+.love-letter * {
+  position: relative;
+  z-index: 2;
+}
+
+.love-letter h2 {
+  font-size: 45px;
+  margin-bottom: 25px;
+  color: #ffe6ea;
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+}
+
+/* Music Button */
+#musicToggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.signature {
+  margin-top: 40px;
+  font-size: 28px;
+  text-align: right;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.game-section {
+  padding: 80px 20px;
+  text-align: center;
+
+  background: 
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+    url("https://images.unsplash.com/photo-1616440347437-b1c73416efc2?q=80&w=1974&auto=format&fit=crop") center/cover no-repeat;
+
+  background-attachment: fixed;
+
+  border-radius: 40px;          /* 👈 Rounded corners */
+  margin: 60px auto;            /* 👈 Space around it */
+  width: 90%;                   /* 👈 Prevent full stretch */
+  max-width: 1200px;
+
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.6);
+
+  overflow: hidden;             /* 👈 Keeps background inside rounded edges */
+  position: relative;
+}
+
+.game-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 42px;
+  color: #ffe6ea;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+}
+
+.game-sub {
+  color: #f8d7da;
+  margin-bottom: 30px;
+}
+
+.game-list {
+  list-style: none;
+  padding: 0;
+}
+
+.game-list li {
+  font-size: 22px;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.game-list li:hover {
+  background: rgba(255, 77, 109, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="noteSound">
+  <source src="music/note.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+<h1 class="main-title">This is how my heart looks for past year</h1>
+<p class="subnote">Click an image to reveal a little memory 💕 (scroll a little to see the notes..)</p>
+
+<div class="gallery-wrapper">
+  <div class="thumb-column" id="leftColumn"></div>
+
+  <div class="frame-wrapper">
+    <img id="mainImage" src="">
+  </div>
+
+  <div class="thumb-column" id="rightColumn"></div>
+</div>
+
+<div id="imageNote" class="image-note"></div>
+
+<div class="game-section">
+  <h2>The Games we gonna playy.. 🎮❤️</h2>
+
+  <ul class="game-list">
+    <li>Portal 2</li>
+    <li>It Takes Two</li>
+    <li>F1 25</li>
+    <li>Prison Break</li>
+    <li>Split Fiction</li>
+    <li>Escape the Backrooms</li>
+    <li>Unraval</li>
+    <li>And many more</li>
+  </ul>
+</div>
+<!-- LOVE LETTER SECTION -->
+<div class="love-letter">
+  <h2>To My Love ❤️</h2>
+  <p>
+    Let me begin by saying sorry, for shutting down all your high enthusiastic gifts -
+    with my snarky or ironic or dumb comments.
+    I know u are trying to make me happy and i am not used to that kind of things,
+    and for that i am forver grateful to you.
+  </p>
+  <p>
+    Now for the cheesey parts....
+    For me you will be my everything,
+    I will sell my laptop in an instant for you,
+    Ambili maamane pidich ende kochin njan kond tharum,
+    Stupid amusment parks ride kerum, even though i see no point in it, i can do it for you,
+    You are my happiness, my asset, my liability, my responsibility, my weakness, my strenghth,
+    my moonlight, my sunshine, my world, my universe, my present, my future and my everything in between.
+  </p>
+    <p>
+    Me dominating you in bed is same as softcore for me which is also same as cuddling for me.
+    I do enjoy a good blowjob, and i cannot forget the fact that you prepping yourself to swallow me,
+    I notice your efforts too.
+    Even if its a formality sex where we just do it and go to sleep, i will still enjoy those moments
+    because it will be with you.
+    We can find a hobby to do together other than gaming which will develope and challenge ourself as a couple,
+    copule challenges, teamwork, where good communications are needed, activities which invole a lot of trust and understanding,
+    We should always challenge ourselves..
+  </p>
+  <p>
+    My love is complicated when trying to show it using words.
+    Bad at showing or reading emotions,
+    But i am willing to change, as long as we change together for togetherness,
+    Obstacles may come and go, people come and go,
+    As long as we be truthful and forgive each other,
+    we can overcome any struggle... 💕
+  </p>
+  <p>
+    I'll end this note by saying gratitude for,
+    The food you bought for me,
+    The gifts you gave me,
+    Trying to play games with me,
+    And I'll the the stuffs you try to make me happy.
+  </p>
+  <p class="signature">
+  — From Ezio to my aLex
+</p>
+</div>
+
+<script>
+const mainImage = document.getElementById("mainImage");
+const leftColumn = document.getElementById("leftColumn");
+const rightColumn = document.getElementById("rightColumn");
+const noteBox = document.getElementById("imageNote");
+const noteSound = document.getElementById("noteSound");
+const bgMusic = document.getElementById("bgMusic");
+
+const selectedImages = [
+  { id: 26, ext: 'JPG' }, { id: 25, ext: 'jpg' },
+  { id: 23, ext: 'jpg' }, { id: 28, ext: 'jpg' },
+  { id: 30, ext: 'jpg' }, { id: 31, ext: 'jpg' },
+  { id: 32, ext: 'jpg' }, { id: 33, ext: 'jpg' },
+  { id: 34, ext: 'jpg' }, { id: 35, ext: 'jpg' }
+];
+
+const imageNotes = {
+  23: "You put on my dress...!!.",
+  25: "Two people who look like they belong together.❤️ before everything else.",
+  26: "HiHiHi u scrolled for a message and you got nothing...😀",
+  28: "I having fun with you.",
+  30: "Haaa the bus ride that started it all....<3",
+  31: "I think this is the first time i tired to look cute... for juu...",
+  32: "That time you were trying to sent me off..",
+  33: "Our first kiss on camera...!!",
+  34: "Our First date...First Pannal..First sent off..First makeout..First cig katthikkal...",
+  35: "We had a blast of a first week.. and i wish to share it with you till the end of time.."
+};
+
+function initGallery() {
+  selectedImages.forEach((imgObj, index) => {
+    const src = `Images/image (${imgObj.id}).${imgObj.ext}`;
+
+    if (index === 0) {
+      mainImage.src = src;
+
+      // 👇 ADD THIS
+      setTimeout(() => {
+        typeWriter(imageNotes[imgObj.id] || "");
+      }, 500); // small delay for smoother feel
+    }
+
+    const div = document.createElement("div");
+    div.className = "thumb";
+    div.innerHTML = `<img src="${src}" onclick="changeImage('${src}', ${imgObj.id})">`;
+
+    if (index % 2 === 0) leftColumn.appendChild(div);
+    else rightColumn.appendChild(div);
+  });
+}
+let typingTimeout;   // 👈 add this at top (outside function)
+
+function typeWriter(text, speed = 40) {
+  // Stop previous typing
+  clearTimeout(typingTimeout);
+
+  noteBox.textContent = "";
+  let i = 0;
+
+  noteSound.currentTime = 0;
+  noteSound.play().catch(() => {});
+
+  function typing() {
+    if (i < text.length) {
+      noteBox.textContent += text.charAt(i);
+      i++;
+      typingTimeout = setTimeout(typing, speed);
+    }
+  }
+
+  typing();
+}
+
+function changeImage(src, id) {
+  clearTimeout(typingTimeout);   // 👈 stop previous typing
+
+  mainImage.style.opacity = 0;
+
+  setTimeout(() => {
+    mainImage.src = src;
+    mainImage.style.opacity = 1;
+    typeWriter(imageNotes[id] || "");
+  }, 300);
+}
+
+
+function toggleMusic() {
+  if (bgMusic.paused) bgMusic.play();
+  else bgMusic.pause();
+}
+
+window.addEventListener("load", () => {
+  bgMusic.play().catch(() => {});
+});
+
+initGallery();
+</script>
+
+</body>
+</html>
